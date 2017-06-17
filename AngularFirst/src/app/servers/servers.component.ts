@@ -14,6 +14,9 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created! ';
   serverName= 'Testserver';
+  serverCreated= false;
+  servers = ['TestServer', 'Testeserver 2'];
+
 
   constructor() {
     setTimeout(() => {
@@ -25,7 +28,10 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated=true;
     this.serverCreationStatus = 'Server was created ! Server name is : '+ this.serverName;
+    //ngFor ile diziye server ekliyor
+    this.servers.push(this.serverName);
   }
 
   onUpdateServerName(event: any){
